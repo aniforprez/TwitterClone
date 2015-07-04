@@ -6,3 +6,5 @@ class Tweet(models.Model):
 	tweet_date = models.DateTimeField('tweet date')
 	def __str__(self):
 		return self.tweet_text
+	class Meta:
+		ordering = ('-tweet_date',)
