@@ -1,8 +1,10 @@
 from django.conf.urls import patterns, url
+from rest_framework.urlpatterns import format_suffix_patterns
+from tweets import views
 
-urlpatterns = patterns(
-    'tweets.views',
-    # api
-    url(r'^api/tweets/$', 'tweet_list'),
-    url(r'^api/tweets/(?P<pk>[0-9]+)$', 'tweet_detail')
-)
+urlpatterns = [
+    url(r'^tweets/$', views.tweet_list),
+    url(r'^tweets/(?P<tid>[0-9]+)$', views.tweet_detail),
+]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
