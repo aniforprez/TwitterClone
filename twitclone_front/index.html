@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="TwitcloneApp">
 <head>
 	<meta charset="UTF-8">
 	<title>Twitclone Front</title>
 	<link rel="stylesheet" href="lib/angular-material/angular-material.min.css">
 </head>
-<body ng-app="TwitcloneApp">
-	<md-toolbar>
-		<div class="md-toolbar-tools">
-			<h2><span>Twitclone</span></h2>
-			<span class="flex"></span>
+<body>
+	<div layout="column" layout-fill>
+		<md-toolbar class="md-whiteframe-z2" md-scroll-shrink>
+			<div class="md-toolbar-tools">
+				<h2><span>Twitclone</span></h2>
+				<span class="flex"></span>
 
-		</div>
-	</md-toolbar>
-	<md-content>
-		<md-list>
-			<md-list-item cla>
-
-			</md-list-item>
-		</md-list>
-	</md-content>
+			</div>
+		</md-toolbar>
+		<md-content ng-controller="MainCtrl" layout="row" layout-align="center center">
+			<md-list flex md-scroll-y>
+				<md-list-item class="md-3-line" ng-repeat="tweet in tweets">
+					<img src="http://lorempixel.com/200/200/" class="md-avatar" alt="">
+					<div class="md-list-item-text">
+						<h3>{{ tweet.tweet_user }}</h3>
+						<h4>{{ tweet.tweet_date | date: 'dd-MM-yyyy' }}</h4>
+						<p>{{ tweet.tweet_text }}</p>
+					</div>
+				</md-list-item>
+			</md-list>
+		</md-content>
+	</div>
 	<!-- Libraries -->
 	<script src="lib/angular/angular.min.js"></script>
 	<script src="lib/angular-animate/angular-animate.min.js"></script>
 	<script src="lib/angular-aria/angular-aria.min.js"></script>
 	<script src="lib/angular-material/angular-material.min.js"></script>
+	<script src="lib/angular-ipsum/dist/ipsum.min.js"></script>
 
 	<!-- Configuration -->
 	<script src="app/app.js"></script>
+
+	<!-- Controllers -->
+	<script src="app/controllers/MainCtrl.js"></script>
 </body>
 </html>

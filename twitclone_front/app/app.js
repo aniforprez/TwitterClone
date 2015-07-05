@@ -1,1 +1,1 @@
-angular.module('TwitcloneApp', ['ngMaterial']);
+angular.module('TwitcloneApp', ['ngMaterial', 'ipsum']);
